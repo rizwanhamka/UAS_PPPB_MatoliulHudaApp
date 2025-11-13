@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647005713828",
+    "project_id": "matoliulhudaapp",
+    "storage_bucket": "matoliulhudaapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647005713828:android:15b5c44be0e7fb504d7d31",
+        "android_client_info": {
+          "package_name": "com.example.matoliulhudaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeU3bLdcROSzVL_XXq6RlryH3oBupfrec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
