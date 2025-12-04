@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_notification -> loadFragment(NotificationsFragment())
+                R.id.nav_notification -> loadFragment(NewsFragment())
                 R.id.nav_input -> loadFragment(InputFragment())
                 R.id.nav_profile -> {
                     if (auth.currentUser != null) {

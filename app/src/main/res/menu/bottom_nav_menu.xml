@@ -6,13 +6,13 @@
     <item
         android:id="@+id/nav_notification"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifikasi" />
-    <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_profile"
-        android:title="Profil" />
+        android:title="Berita" />
     <item
         android:id="@+id/nav_input"
         android:icon="@drawable/ic_input"
         android:title="Masukkan" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profil" />
 </menu>

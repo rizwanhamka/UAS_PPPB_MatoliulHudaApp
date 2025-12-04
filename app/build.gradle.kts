@@ -48,12 +48,18 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // ✅ Firebase BoM (kelola versi otomatis)
+    // Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
 
-    // ✅ Gunakan versi KTX
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
-}
 
+    // Retrofit + Gson Converter (Kotlin DSL)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+}
