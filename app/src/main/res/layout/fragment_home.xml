@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lorem Ipsum"
+                    android:text="Selamat Siang!"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -47,7 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_marginBottom="8dp"
+                android:src="@drawable/doa"
                 android:background="@color/gray" />
+
 
             <LinearLayout
                 android:id="@+id/dotsLayout"
@@ -71,6 +73,7 @@
                 android:layout_height="130dp"
                 android:background="@color/gray"
                 android:scaleType="centerCrop"
+                android:src="@drawable/doa"
                 android:layout_marginBottom="20dp" />
 
             <!-- Grid menu -->
@@ -95,8 +98,12 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#7E8D68"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#77805c"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/berita"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -117,8 +124,12 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#2E6CE1"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#1941e5"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/galeri"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -128,7 +139,7 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 3. Kalender Akademik -->
+                <!-- 3. Pengurus -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -139,12 +150,16 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#9CCC65"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#92c112"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/pengurus"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kalender Akademik"
+                        android:text="Pengurus"
                         android:textSize="14sp"
                         android:textColor="@android:color/black"
                         android:gravity="center"
@@ -162,12 +177,16 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#8BC34A"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#7ea11e"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/masukkan"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pengurus"
+                        android:text="Masukkan"
                         android:textSize="14sp"
                         android:textColor="@android:color/black"
                         android:layout_marginTop="6dp" />
@@ -184,8 +203,12 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#E53935"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#dd2528"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/hubungikami"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -206,8 +229,12 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="#2196F3"
-                        android:padding="12dp" />
+                        android:background="@drawable/bg_round"
+                        android:backgroundTint="#208fea"
+                        android:scaleType="centerCrop"
+                        android:padding="12dp"
+                        android:src="@drawable/logout"
+                        android:clipToOutline="true"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
