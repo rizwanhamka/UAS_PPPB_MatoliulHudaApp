@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottomNav"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="64dp"
     android:background="#2E7D32"
+
+    app:itemIconSize="26dp"
+    app:itemPaddingTop="6dp"
+    app:itemPaddingBottom="6dp"
+
     app:itemIconTint="@color/white"
     app:itemTextColor="@color/white"
+    app:itemActiveIndicatorStyle="@style/NoActiveIndicator"
     app:menu="@menu/bottom_nav_menu"/>

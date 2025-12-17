@@ -22,9 +22,12 @@
 
     <style name="ActiveIndicatorGreen">
         <item name="android:color">#1E5A29</item>
-        <item name="android:width">28dp</item>
-        <item name="android:height">28dp</item>
-        <item name="android:shape">oval</item>
+        <item name="android:width">42dp</item>
+        <item name="android:height">32dp</item>
+        <item name="cornerRadius">16dp</item>
     </style>
+
+
+
 
 </resources>
