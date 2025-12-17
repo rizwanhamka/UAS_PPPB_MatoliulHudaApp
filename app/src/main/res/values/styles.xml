@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- ===================== -->
+    <!-- Splash Screen Theme -->
+    <!-- ===================== -->
+    <style name="Theme.MatoliulHudaApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">#FFFFFF</item>
+        <item name="postSplashScreenTheme">@style/Theme.MatoliulHudaApp</item>
+    </style>
+
+    <!-- ===================== -->
+    <!-- Indicator Styles -->
+    <!-- ===================== -->
     <style name="NoActiveIndicator">
         <item name="android:color">@android:color/transparent</item>
         <item name="android:width">0dp</item>
         <item name="android:height">0dp</item>
     </style>
+
     <style name="ActiveIndicatorGreen">
-        <item name="android:color">#1E5A29</item> <!-- sedikit lebih gelap dari background -->
+        <item name="android:color">#1E5A29</item>
         <item name="android:width">28dp</item>
         <item name="android:height">28dp</item>
         <item name="android:shape">oval</item>

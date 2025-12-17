@@ -36,7 +36,18 @@ class NewsFragment : Fragment() {
                     val data = response.body() ?: emptyList()
                     recyclerView.adapter = NewsAdapter(data) { news ->
                         // aksi Read More
-                        Toast.makeText(requireContext(), "Berita: ${news.title}", Toast.LENGTH_SHORT).show()
+                        val detailFragment = DetailNewsFragment()
+
+                        // Kirim data menggunakan Bundle
+                        val bundle = Bundle()
+                        bundle.putParcelable("EXTRA_NEWS", news)
+                        detailFragment.arguments = bundle
+
+                        // Lakukan transaksi fragment
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.fragmentContainer, detailFragment) // ID dari MainActivity Anda
+                            .addToBackStack(null) // Agar tombol Back HP bisa kembali ke List Berita
+                            .commit()
                     }
                 } else {
                     Toast.makeText(requireContext(), "Gagal: ${response.code()}", Toast.LENGTH_SHORT).show()

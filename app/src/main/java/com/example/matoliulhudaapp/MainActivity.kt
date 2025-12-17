@@ -1,17 +1,22 @@
 package com.example.matoliulhudaapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.matoliulhudaapp.components.*
 import com.google.firebase.auth.FirebaseAuth
+import com.example.matoliulhudaapp.components.*
 
 class MainActivity : AppCompatActivity() {
 
     private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // ✅ Splash Screen (WAJIB sebelum super.onCreate)
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -23,10 +28,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_input -> loadFragment(InputFragment())
                 R.id.nav_profile -> {
                     if (auth.currentUser != null) {
-                        // ✅ Sudah login → tampilkan profil
                         loadFragment(ProfileFragment())
                     } else {
-                        // ❌ Belum login → tampilkan halaman login
                         loadFragment(LoginFragment())
                     }
                 }
@@ -35,8 +38,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // Halaman default saat app dibuka
-        loadFragment(HomeFragment())
+        // ✅ Default fragment (hanya saat pertama kali)
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {

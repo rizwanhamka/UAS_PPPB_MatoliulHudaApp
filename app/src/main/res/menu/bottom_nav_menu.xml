@@ -5,7 +5,7 @@
         android:title="Beranda" />
     <item
         android:id="@+id/nav_notification"
-        android:icon="@drawable/ic_notifications"
+        android:icon="@drawable/berita"
         android:title="Berita" />
     <item
         android:id="@+id/nav_input"

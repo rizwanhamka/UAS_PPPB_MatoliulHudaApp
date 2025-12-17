@@ -23,6 +23,15 @@ class LoginFragment : Fragment() {
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Email dan Password harus diisi!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Tampilkan loading (opsional: disable tombol)
+            loginButton.isEnabled = false
+            loginButton.text = "Loading..."
+
             auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     Toast.makeText(requireContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
@@ -31,7 +40,9 @@ class LoginFragment : Fragment() {
                         .commit()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Gagal login: ${it.message}", Toast.LENGTH_SHORT).show()
+                    loginButton.isEnabled = true
+                    loginButton.text = "MASUK"
+                    Toast.makeText(requireContext(), "Login Gagal: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
 

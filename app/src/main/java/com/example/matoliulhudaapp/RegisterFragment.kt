@@ -12,11 +12,7 @@ class RegisterFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private val db = FirebaseDatabase.getInstance().getReference("users")
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
         auth = FirebaseAuth.getInstance()
 
@@ -31,10 +27,13 @@ class RegisterFragment : Fragment() {
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Semua field wajib diisi", Toast.LENGTH_SHORT).show()
+            if (name.isEmpty() || email.isEmpty() || password.length < 6) {
+                Toast.makeText(requireContext(), "Isi semua data. Password min 6 karakter.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
+            registerButton.isEnabled = false
+            registerButton.text = "Mendaftarkan..."
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
@@ -43,24 +42,21 @@ class RegisterFragment : Fragment() {
                         "uid" to uid,
                         "name" to name,
                         "email" to email,
-                        "role" to "user" // default semua user baru bukan admin
+                        "role" to "user"
                     )
 
                     db.child(uid).setValue(userData)
                         .addOnSuccessListener {
-                            Toast.makeText(requireContext(), "Registrasi berhasil 🎉", Toast.LENGTH_SHORT).show()
-
-                            // Arahkan ke halaman login
+                            Toast.makeText(requireContext(), "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
                             parentFragmentManager.beginTransaction()
                                 .replace(R.id.fragmentContainer, LoginFragment())
                                 .commit()
                         }
-                        .addOnFailureListener { e ->
-                            Toast.makeText(requireContext(), "Gagal menyimpan ke database: ${e.message}", Toast.LENGTH_SHORT).show()
-                        }
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(requireContext(), "Gagal registrasi: ${e.message}", Toast.LENGTH_SHORT).show()
+                    registerButton.isEnabled = true
+                    registerButton.text = "DAFTAR"
+                    Toast.makeText(requireContext(), "Gagal: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
 

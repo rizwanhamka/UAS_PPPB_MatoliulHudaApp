@@ -27,16 +27,18 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/gray"
-                    android:src="@color/gray"
+                    android:src="@drawable/logo"
+                    android:tint="#2E7D32"
                     android:layout_marginEnd="8dp"
                     android:scaleType="centerCrop"
                     android:contentDescription="Profile" />
 
+
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selamat Siang!"
+                    android:text="Matoliul Huda App"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -49,7 +51,6 @@
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/doa"
                 android:background="@color/gray" />
-
 
             <LinearLayout
                 android:id="@+id/dotsLayout"
@@ -76,7 +77,6 @@
                 android:src="@drawable/doa"
                 android:layout_marginBottom="20dp" />
 
-            <!-- Grid menu -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,14 +86,16 @@
                 android:rowCount="2"
                 android:gravity="center">
 
-                <!-- ITEM MENU TEMPLATE -->
-                <!-- 1. Berita -->
                 <LinearLayout
+                    android:id="@+id/menuBerita"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
                     android:padding="8dp">
                     <ImageView
                         android:layout_width="70dp"
@@ -113,13 +115,16 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 2. Gallery -->
                 <LinearLayout
+                    android:id="@+id/menuGallery"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
                     android:padding="8dp">
                     <ImageView
                         android:layout_width="70dp"
@@ -139,14 +144,18 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 3. Pengurus -->
                 <LinearLayout
+                    android:id="@+id/menuPengurus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
                     android:padding="8dp">
+
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
@@ -166,13 +175,16 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 4. Pengurus -->
                 <LinearLayout
+                    android:id="@+id/menuInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
                     android:padding="8dp">
                     <ImageView
                         android:layout_width="70dp"
@@ -192,14 +204,18 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 5. Hubungi Kami -->
                 <LinearLayout
+                    android:id="@+id/menuContact"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
                     android:padding="8dp">
+
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
@@ -218,8 +234,8 @@
                         android:layout_marginTop="6dp" />
                 </LinearLayout>
 
-                <!-- 6. Log out -->
                 <LinearLayout
+                    android:id="@+id/menuLogout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
