@@ -34,9 +34,16 @@ class NewsAdapter(
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = list[position]
 
-        holder.title.text = item.title ?: "-"
-        holder.desc.text = item.description ?: "-"
-        holder.date.text = item.date?.substring(0, 10) ?: "-"
+        holder.title.text = item.title.ifEmpty { "-" }
+
+        // Batasi deskripsi max 10 kata
+        holder.desc.text = item.description
+            .split(" ")
+            .take(10)
+            .joinToString(" ")
+            .let { if (item.description.split(" ").size > 10) "$it..." else it }
+
+        holder.date.text = item.date.take(10)
 
         Glide.with(holder.img.context)
             .load(item.imageUrl)
@@ -46,6 +53,7 @@ class NewsAdapter(
             onReadMoreClick(item)
         }
     }
+
 
     override fun getItemCount(): Int = list.size
 }

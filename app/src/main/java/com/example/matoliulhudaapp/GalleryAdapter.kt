@@ -8,8 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.matoliulhudaapp.GalleryImage
 import com.example.matoliulhudaapp.R
+import android.app.DownloadManager
+import android.content.Context
+import android.net.Uri
+import android.os.Environment
+import android.widget.Toast
 
-class GalleryAdapter(private val list: List<GalleryImage>) :
+
+class GalleryAdapter(
+    private val list: List<GalleryImage>,
+    private val context: Context
+) :
     RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
 
     class GalleryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -25,12 +34,41 @@ class GalleryAdapter(private val list: List<GalleryImage>) :
     override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
         val item = list[position]
 
-        // Load gambar menggunakan Glide
         Glide.with(holder.itemView.context)
             .load(item.url)
-            .placeholder(R.drawable.ic_launcher_background) // Gambar sementara saat loading
+            .placeholder(R.drawable.ic_launcher_background)
             .into(holder.img)
+
+        holder.img.setOnClickListener {
+            downloadImage(item.url)
+        }
     }
+
+    private fun downloadImage(url: String) {
+        try {
+            val request = DownloadManager.Request(Uri.parse(url))
+                .setTitle("Download Gambar")
+                .setDescription("Mengunduh gambar galeri")
+                .setNotificationVisibility(
+                    DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED
+                )
+                .setDestinationInExternalPublicDir(
+                    Environment.DIRECTORY_PICTURES,
+                    "gallery_${System.currentTimeMillis()}.jpg"
+                )
+
+            val downloadManager =
+                context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            downloadManager.enqueue(request)
+
+            Toast.makeText(context, "Download dimulai", Toast.LENGTH_SHORT).show()
+
+        } catch (e: Exception) {
+            Toast.makeText(context, "Gagal mengunduh gambar", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
     override fun getItemCount(): Int = list.size
 }

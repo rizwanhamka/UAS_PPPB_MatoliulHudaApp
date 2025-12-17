@@ -43,7 +43,7 @@ class GalleryFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body() ?: emptyList()
-                    recyclerView.adapter = GalleryAdapter(data)
+                    recyclerView.adapter = GalleryAdapter(data, requireContext())
                 } else {
                     Toast.makeText(requireContext(), "Gagal memuat galeri", Toast.LENGTH_SHORT).show()
                 }
